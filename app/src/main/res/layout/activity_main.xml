@@ -7,15 +7,15 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="16dp"
-    android:background="#FAFAFA">
+    android:background="#F2AAC2">
 
     <TextView
         android:id="@+id/status_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Player X's turn"
-        android:textSize="18sp"
-        android:textColor="#333333"
+        android:textSize="25sp"
+        android:textColor="#3F0249"
         android:layout_marginBottom="16dp" />
 
     <GridLayout
@@ -23,8 +23,8 @@
         android:layout_height="wrap_content"
         android:rowCount="3"
         android:columnCount="3"
-        android:background="#000000"
-        android:layout_marginBottom="16dp">
+        android:background="#FCF8ADC6"
+        android:layout_marginBottom="20dp">
 
         <!-- Row 0 -->
         <Button
@@ -33,7 +33,7 @@
             android:layout_height="100dp"
             android:layout_margin="2dp"
             android:background="@drawable/grid_background"
-            android:textSize="24sp"
+            android:textSize="40sp"
             android:contentDescription="Cell 0, 0"/>
 
         <Button
@@ -42,7 +42,7 @@
             android:layout_height="100dp"
             android:layout_margin="2dp"
             android:background="@drawable/grid_background"
-            android:textSize="24sp"
+            android:textSize="40sp"
             android:contentDescription="Cell 0, 1"/>
 
         <Button
@@ -51,7 +51,7 @@
             android:layout_height="100dp"
             android:layout_margin="2dp"
             android:background="@drawable/grid_background"
-            android:textSize="24sp"
+            android:textSize="40sp"
             android:contentDescription="Cell 0, 2"/>
 
         <!-- Row 1 -->
@@ -61,7 +61,7 @@
             android:layout_height="100dp"
             android:layout_margin="2dp"
             android:background="@drawable/grid_background"
-            android:textSize="24sp"
+            android:textSize="40sp"
             android:contentDescription="Cell 1, 0"/>
 
         <Button
@@ -70,7 +70,7 @@
             android:layout_height="100dp"
             android:layout_margin="2dp"
             android:background="@drawable/grid_background"
-            android:textSize="24sp"
+            android:textSize="40sp"
             android:contentDescription="Cell 1, 1"/>
 
         <Button
@@ -79,7 +79,7 @@
             android:layout_height="100dp"
             android:layout_margin="2dp"
             android:background="@drawable/grid_background"
-            android:textSize="24sp"
+            android:textSize="40sp"
             android:contentDescription="Cell 1, 2"/>
 
         <!-- Row 2 -->
@@ -89,7 +89,7 @@
             android:layout_height="100dp"
             android:layout_margin="2dp"
             android:background="@drawable/grid_background"
-            android:textSize="24sp"
+            android:textSize="40sp"
             android:contentDescription="Cell 2, 0"/>
 
         <Button
@@ -98,7 +98,7 @@
             android:layout_height="100dp"
             android:layout_margin="2dp"
             android:background="@drawable/grid_background"
-            android:textSize="24sp"
+            android:textSize="40sp"
             android:contentDescription="Cell 2, 1"/>
 
         <Button
@@ -107,7 +107,7 @@
             android:layout_height="100dp"
             android:layout_margin="2dp"
             android:background="@drawable/grid_background"
-            android:textSize="24sp"
+            android:textSize="40sp"
             android:contentDescription="Cell 2, 2"/>
     </GridLayout>
 
@@ -126,7 +126,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Play Again"
-        android:background="#6200EE"
-        android:textColor="#FFFFFF"
+        android:background="#74F0DDE4"
+        android:textColor="#3F0249"
         android:padding="12dp" />
 </LinearLayout>
