@@ -9,124 +9,181 @@
     android:padding="16dp"
     android:background="#F2AAC2">
 
+    <!-- כותרת העמוד -->
+    <TextView
+        android:id="@+id/page_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tic Tac Toe"
+        android:textSize="30sp"
+        android:textColor="#F22068"
+        android:layout_marginBottom="20dp"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/score_x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Player X: 0"
+            android:textSize="18sp"
+            android:textColor="#F22068"
+            android:layout_marginEnd="16dp" />
+
+        <TextView
+            android:id="@+id/score_o"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Player O: 0"
+            android:textSize="18sp"
+            android:textColor="#F22068"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/status_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Player X's turn"
         android:textSize="25sp"
-        android:textColor="#3F0249"
+        android:textColor="#F22068"
         android:layout_marginBottom="16dp" />
 
-    <GridLayout
+    <!-- FrameLayout to overlay confetti animation on top of the board -->
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:rowCount="3"
-        android:columnCount="3"
-        android:background="#FCF8ADC6"
-        android:layout_marginBottom="20dp">
+        android:layout_gravity="center">
 
-        <!-- Row 0 -->
-        <Button
-            android:id="@+id/button_0_0"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="2dp"
-            android:background="@drawable/grid_background"
-            android:textSize="40sp"
-            android:contentDescription="Cell 0, 0"/>
+        <!-- Game board -->
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rowCount="3"
+            android:columnCount="3"
+            android:background="#FCF8ADC6"
+            android:layout_marginBottom="20dp">
 
-        <Button
-            android:id="@+id/button_0_1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="2dp"
-            android:background="@drawable/grid_background"
-            android:textSize="40sp"
-            android:contentDescription="Cell 0, 1"/>
+            <!-- Row 0 -->
+            <Button
+                android:id="@+id/button_0_0"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="2dp"
+                android:background="@drawable/grid_background"
+                android:contentDescription="Cell 0, 0"
+                android:textSize="40sp" />
 
-        <Button
-            android:id="@+id/button_0_2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="2dp"
-            android:background="@drawable/grid_background"
-            android:textSize="40sp"
-            android:contentDescription="Cell 0, 2"/>
+            <Button
+                android:id="@+id/button_0_1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="2dp"
+                android:background="@drawable/grid_background"
+                android:textSize="40sp"
+                android:contentDescription="Cell 0, 1"/>
 
-        <!-- Row 1 -->
-        <Button
-            android:id="@+id/button_1_0"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="2dp"
-            android:background="@drawable/grid_background"
-            android:textSize="40sp"
-            android:contentDescription="Cell 1, 0"/>
+            <Button
+                android:id="@+id/button_0_2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="2dp"
+                android:background="@drawable/grid_background"
+                android:textSize="40sp"
+                android:contentDescription="Cell 0, 2"/>
 
-        <Button
-            android:id="@+id/button_1_1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="2dp"
-            android:background="@drawable/grid_background"
-            android:textSize="40sp"
-            android:contentDescription="Cell 1, 1"/>
+            <!-- Row 1 -->
+            <Button
+                android:id="@+id/button_1_0"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="2dp"
+                android:background="@drawable/grid_background"
+                android:textSize="40sp"
+                android:contentDescription="Cell 1, 0"/>
 
-        <Button
-            android:id="@+id/button_1_2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="2dp"
-            android:background="@drawable/grid_background"
-            android:textSize="40sp"
-            android:contentDescription="Cell 1, 2"/>
+            <Button
+                android:id="@+id/button_1_1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="2dp"
+                android:background="@drawable/grid_background"
+                android:textSize="40sp"
+                android:contentDescription="Cell 1, 1"/>
 
-        <!-- Row 2 -->
-        <Button
-            android:id="@+id/button_2_0"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="2dp"
-            android:background="@drawable/grid_background"
-            android:textSize="40sp"
-            android:contentDescription="Cell 2, 0"/>
+            <Button
+                android:id="@+id/button_1_2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="2dp"
+                android:background="@drawable/grid_background"
+                android:textSize="40sp"
+                android:contentDescription="Cell 1, 2"/>
 
-        <Button
-            android:id="@+id/button_2_1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="2dp"
-            android:background="@drawable/grid_background"
-            android:textSize="40sp"
-            android:contentDescription="Cell 2, 1"/>
+            <!-- Row 2 -->
+            <Button
+                android:id="@+id/button_2_0"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="2dp"
+                android:background="@drawable/grid_background"
+                android:textSize="40sp"
+                android:contentDescription="Cell 2, 0"/>
 
-        <Button
-            android:id="@+id/button_2_2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="2dp"
-            android:background="@drawable/grid_background"
-            android:textSize="40sp"
-            android:contentDescription="Cell 2, 2"/>
-    </GridLayout>
+            <Button
+                android:id="@+id/button_2_1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="2dp"
+                android:background="@drawable/grid_background"
+                android:textSize="40sp"
+                android:contentDescription="Cell 2, 1"/>
 
+            <Button
+                android:id="@+id/button_2_2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="2dp"
+                android:background="@drawable/grid_background"
+                android:textSize="40sp"
+                android:contentDescription="Cell 2, 2"/>
+        </GridLayout>
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/confetti_animation"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:visibility="gone"
-        app:lottie_rawRes="@raw/confetti_animation"
-        app:lottie_loop="false" />
-
+        <!-- Confetti animation -->
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/confetti_animation"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:visibility="gone"
+            app:lottie_rawRes="@raw/confetti_animation"
+            app:lottie_loop="false"
+            android:layout_gravity="center" />
+    </FrameLayout>
 
     <Button
         android:id="@+id/reset_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Play Again"
-        android:background="#74F0DDE4"
-        android:textColor="#3F0249"
+        android:background="#F0DDE4"
+        android:textColor="#F22068"
         android:padding="12dp" />
+
+    <Button
+        android:id="@+id/reset_scores_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Reset Scores"
+        android:layout_marginTop="16dp"
+        android:padding="12dp"
+        android:background="#F0DDE4"
+        android:textColor="#F22068" />
+
 </LinearLayout>

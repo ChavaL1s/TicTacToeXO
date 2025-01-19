@@ -1,19 +1,21 @@
 package com.example.tictactoexo
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.airbnb.lottie.LottieAnimationView
-import com.example.tictactoexo.R
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var board: Array<Array<Button>>
     private var currentPlayer = "X"
     private var gameActive = true
+    private var scoreX = 0
+    private var scoreO = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,22 +33,28 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.reset_button).setOnClickListener {
             resetBoard()
         }
+        findViewById<Button>(R.id.reset_scores_button)?.setOnClickListener {
+            resetScores()
+        }
     }
 
     private fun onButtonClick(button: Button, row: Int, col: Int) {
         if (button.text.isEmpty() && gameActive) {
             button.text = currentPlayer
-            button.setTextColor(if (currentPlayer == "X") resources.getColor(R.color.red, null) else resources.getColor(R.color.blue, null))
+            button.setTextColor(
+                if (currentPlayer == "X") resources.getColor(R.color.red, null)
+                else resources.getColor(R.color.blue, null)
+            )
             if (checkWin()) {
                 showWinAnimation(currentPlayer)
-                findViewById<TextView>(R.id.status_text).text = "Player $currentPlayer wins!"
+                findViewById<TextView>(R.id.status_text)?.text = "Player $currentPlayer wins!"
                 gameActive = false
             } else if (isBoardFull()) {
-                findViewById<TextView>(R.id.status_text).text = "It's a draw!"
+                findViewById<TextView>(R.id.status_text)?.text = "It's a draw!"
                 gameActive = false
             } else {
                 currentPlayer = if (currentPlayer == "X") "O" else "X"
-                findViewById<TextView>(R.id.status_text).text = "Player $currentPlayer's turn"
+                findViewById<TextView>(R.id.status_text)?.text = "Player $currentPlayer's turn"
             }
         }
     }
@@ -74,15 +82,29 @@ class MainActivity : AppCompatActivity() {
         }
         currentPlayer = "X"
         gameActive = true
-        findViewById<TextView>(R.id.status_text).text = "Player X's turn"
-        findViewById<LottieAnimationView>(R.id.confetti_animation).visibility = View.GONE
+        findViewById<TextView>(R.id.status_text)?.text = "Player X's turn"
+        findViewById<LottieAnimationView>(R.id.confetti_animation)?.visibility = View.GONE
     }
 
     private fun showWinAnimation(winner: String) {
-        findViewById<LottieAnimationView>(R.id.confetti_animation).apply {
+        findViewById<LottieAnimationView>(R.id.confetti_animation)?.apply {
             visibility = View.VISIBLE
             playAnimation()
         }
+        if (winner == "X") {
+            scoreX++
+            findViewById<TextView>(R.id.score_x)?.text = "Player X: $scoreX"
+        } else if (winner == "O") {
+            scoreO++
+            findViewById<TextView>(R.id.score_o)?.text = "Player O: $scoreO"
+        }
         Toast.makeText(this, "Congratulations! $winner wins!", Toast.LENGTH_LONG).show()
+    }
+
+    private fun resetScores() {
+        scoreX = 0
+        scoreO = 0
+        findViewById<TextView>(R.id.score_x)?.text = "Player X: 0"
+        findViewById<TextView>(R.id.score_o)?.text = "Player O: 0"
     }
 }
